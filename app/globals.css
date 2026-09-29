@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-white: #FFFFFF;
+  --color-cream: #FAF6EE;
+  --color-cream-text: #F5F0E8;
+  --color-gold: #C9A84C;
+  --color-maroon: #6B0F1A;
+  --color-maroon-deep: #4D0A13;
+  --color-ink: #1A1A1A;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  font-family: var(--font-space), -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #1A1A1A;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Luxury Selection */
+::selection {
+  background: #6B0F1A;
+  color: #F5F0E8;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #6B0F1A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C;
+}
+
+/* Text Splitting Reveal Helper */
+.line-reveal-wrap {
+  overflow: hidden;
+  display: block;
+}
+
+.line-reveal-inner {
+  display: block;
+  transform: translateY(105%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.line-reveal-inner.revealed {
+  transform: translateY(0%);
+}
+
+/* Section Edge Transition Mask */
+.section-mask-top {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 80px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 80px);
+}
+
+.section-mask-bottom {
+  mask-image: linear-gradient(to top, transparent 0%, black 80px);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 80px);
+}
+
+/* Slow Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Image Scale Transition */
+.editorial-img {
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.editorial-img:hover {
+  transform: scale(1.04);
+}
+
+/* Floating cut-out parallax keyframes */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 7s ease-in-out infinite;
+}
+
+/* Thin 1px Gold Line Helper */
+.gold-divider {
+  height: 1px;
+  background-color: rgba(201, 168, 76, 0.3);
+  width: 100%;
+}
